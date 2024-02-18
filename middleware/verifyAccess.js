@@ -7,9 +7,8 @@ const verifyAccess = async (req, res, next) => {
   const user = jwt.verify(token, process.env.JWT_SECRET);
   const userID = user.id;
   const id = req.params.id;
-  console.log(id);
+
   const task = await Task.findOne({ _id: id });
-  console.log(task);
   if (task.user != userID) {
     return res.status(401).json({ msg: "You do not have access to this task" });
   }

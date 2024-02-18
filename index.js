@@ -11,13 +11,11 @@ const verifyAccess = require("./middleware/verifyAccess");
 app.use(express.json());
 
 // Home route
-app.get("/", (req, res) => {
-  res.send("Home route");
-});
 
 //Auth routes
 app.use("/auth", authRoutes);
 app.use(verifyAuth);
+app.use("/task/:id", verifyAccess);
 app.use("/task", taskRoutes);
 
 (async () => {

@@ -35,7 +35,10 @@ const createTask = async (req, res) => {
 const getTask = async (req, res) => {
   const id = req.params.id;
   try {
-    const task = await Task.findById(id);
+    const task = await Task.findById(id).populate("user", {
+      password: 0,
+      __v: 0,
+    });
 
     return res.status(200).json({ msg: "success", data: task });
   } catch (error) {

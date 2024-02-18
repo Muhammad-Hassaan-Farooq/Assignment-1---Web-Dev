@@ -5,6 +5,8 @@ const app = express();
 const connectDB = require("./Database/connectDB");
 const authRoutes = require("./routes/auth");
 const taskRoutes = require("./routes/task");
+const verifyAuth = require("./middleware/verifyAuth");
+const verifyAccess = require("./middleware/verifyAccess");
 
 app.use(express.json());
 
@@ -15,6 +17,7 @@ app.get("/", (req, res) => {
 
 //Auth routes
 app.use("/auth", authRoutes);
+app.use(verifyAuth);
 app.use("/task", taskRoutes);
 
 (async () => {

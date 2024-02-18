@@ -5,6 +5,24 @@ const jwt = require("jsonwebtoken");
 const createUser = async (req, res) => {
   const { name, email, password } = req.body;
 
+  //Password validation
+  if (password.length < 8) {
+    return res
+      .status(200)
+      .json({ msg: "Password must be at least 8 characters" });
+  }
+  if (!/[A-Z]/.test(password)) {
+    return res
+      .status(200)
+      .json({ msg: "Password must contain at least one uppercase letter" });
+  }
+  if (name.length < 3) {
+    return res.status(200).json({ msg: "Name must be at least 3 characters" });
+  }
+  if (!/^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/.test(email)) {
+    return res.status(200).json({ msg: "Invalid email" });
+  }
+
   try {
     const userExist = await User.findOne({ email });
     if (userExist) {

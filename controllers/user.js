@@ -3,7 +3,7 @@ const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 
 const createUser = async (req, res) => {
-  const { name, email, password } = req.body;
+  const { name, email, password, admin } = req.body;
 
   //Password validation
   if (password.length < 8) {
@@ -37,6 +37,7 @@ const createUser = async (req, res) => {
       name,
       email,
       password: await bcrypt.hash(password, 5),
+      admin,
     });
     res.status(200).json({ msg: "User created" });
   } catch (error) {
@@ -61,9 +62,13 @@ const loginUser = async (req, res) => {
       return res.status(200).json({ msg: "Invalid credentials" });
     }
 
-    const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, {
-      expiresIn: "1h",
-    });
+    const token = jwt.sign(
+      { id: user._id, admin: user.admin },
+      process.env.JWT_SECRET,
+      {
+        expiresIn: "1d",
+      }
+    );
 
     res.status(200).json({ msg: "User logged in", user: user, token });
   } catch (error) {

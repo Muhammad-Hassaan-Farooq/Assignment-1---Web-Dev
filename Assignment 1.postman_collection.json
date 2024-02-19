@@ -1,0 +1,1039 @@
+{
+	"info": {
+		"_postman_id": "7bbae449-7cca-4cb2-9e28-1cc06cc2e1f3",
+		"name": "Assignment 1",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "31503137"
+	},
+	"item": [
+		{
+			"name": "auth req",
+			"item": [
+				{
+					"name": "Signup ",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\":\"Notadmin\",\n  \"email\":\"Notadmin@gmail.com\",\n  \"password\":\"NotadminPass\",\n  \"admin\":false\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{localhost}}/auth/signup"
+					},
+					"response": [
+						{
+							"name": "Admin Signup",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\":\"admin\",\n  \"email\":\"admin@gmail.com\",\n  \"password\":\"adminPass\",\n  \"admin\":true\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{localhost}}/auth/signup"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "22"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"16-o6jR+e9vGbOw1I0wr1G0DCnBcU4\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 19 Feb 2024 16:46:08 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"msg\": \"User created\"\n}"
+						},
+						{
+							"name": "not admin signup",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\":\"Notadmin\",\n  \"email\":\"Notadmin@gmail.com\",\n  \"password\":\"NotadminPass\",\n  \"admin\":false\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{localhost}}/auth/signup"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "22"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"16-o6jR+e9vGbOw1I0wr1G0DCnBcU4\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 19 Feb 2024 16:46:44 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"msg\": \"User created\"\n}"
+						},
+						{
+							"name": "password too short",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\":\"Notadmin\",\n  \"email\":\"Notadmin@gmail.com\",\n  \"password\":\"Pass\",\n  \"admin\":false\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{localhost}}/auth/signup"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "48"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"30-pz+8yr73sFq2TVQsWRGFIkwvO2o\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 19 Feb 2024 17:06:49 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"msg\": \"Password must be at least 8 characters\"\n}"
+						},
+						{
+							"name": "invalid email",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\":\"Notadmin\",\n  \"email\":\"Notadmin\",\n  \"password\":\"NotadminPass\",\n  \"admin\":false\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{localhost}}/auth/signup"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "23"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"17-8iS3YhTupFuQNF9wrDcHKIG4z84\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 19 Feb 2024 17:07:06 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"msg\": \"Invalid email\"\n}"
+						},
+						{
+							"name": "name too short",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\":\"\",\n  \"email\":\"Notadmin@gmail.com\",\n  \"password\":\"NotadminPass\",\n  \"admin\":false\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{localhost}}/auth/signup"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "44"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2c-lD/Hx+rjz0D04/D1tDqDFux8eCg\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 19 Feb 2024 17:07:24 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"msg\": \"Name must be at least 3 characters\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\":\"Notadmin@gmail.com\",\n    \"password\":\"NotadminPass\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{localhost}}/auth/login"
+					},
+					"response": [
+						{
+							"name": "Admin Login",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\":\"admin@gmail.com\",\n    \"password\":\"adminPass\"\n}\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{localhost}}/auth/login"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "401"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"191-0UMV3uLESrjhaIMZSrFwZ/a9cSk\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 19 Feb 2024 16:50:11 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"msg\": \"User logged in\",\n    \"user\": {\n        \"_id\": \"65d385d0e67c37d0aa6ffa95\",\n        \"name\": \"admin\",\n        \"email\": \"admin@gmail.com\",\n        \"password\": \"$2b$05$R5kyq2w5TI8GEzlsGdbUZ.iCRhRK8LeG.bNS09g2uQUw2kb04YFFC\",\n        \"admin\": true,\n        \"__v\": 0\n    },\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1ZDM4NWQwZTY3YzM3ZDBhYTZmZmE5NSIsImFkbWluIjp0cnVlLCJpYXQiOjE3MDgzNjE0MTEsImV4cCI6MTcwODQ0NzgxMX0.odYdGu2rkOc4enKW6x2IkYZawYJk2Dxb9u0NRiieXwo\"\n}"
+						},
+						{
+							"name": "Not admin Login",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\":\"Notadmin@gmail.com\",\n    \"password\":\"NotadminPass\"\n}\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{localhost}}/auth/login"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "409"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"199-6Gd+SMYOiwGMxnFKqqPWe1pQgBc\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 19 Feb 2024 16:52:49 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"msg\": \"User logged in\",\n    \"user\": {\n        \"_id\": \"65d385f4e67c37d0aa6ffa99\",\n        \"name\": \"Notadmin\",\n        \"email\": \"Notadmin@gmail.com\",\n        \"password\": \"$2b$05$mggJuHuI6jD.94J0kdAKlee.mAjy6SJKa/opLFvVlo60AU5HmSvVe\",\n        \"admin\": false,\n        \"__v\": 0\n    },\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1ZDM4NWY0ZTY3YzM3ZDBhYTZmZmE5OSIsImFkbWluIjpmYWxzZSwiaWF0IjoxNzA4MzYxNTY5LCJleHAiOjE3MDg0NDc5Njl9.XHUkWutgup4biqpFCt0JMQmTdBaR5Z5Hf4-2Q5NgD20\"\n}"
+						}
+					]
+				},
+				{
+					"name": "get all users",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{localhost}}/auth/users"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "crud api",
+			"item": [
+				{
+					"name": "get all tasks",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1ZDM4NWQwZTY3YzM3ZDBhYTZmZmE5NSIsImFkbWluIjp0cnVlLCJpYXQiOjE3MDgzNjE0MTEsImV4cCI6MTcwODQ0NzgxMX0.odYdGu2rkOc4enKW6x2IkYZawYJk2Dxb9u0NRiieXwo"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{localhost}}/task"
+					},
+					"response": [
+						{
+							"name": "User specific tasks returned",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{localhost}}/task"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "304"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"130-nfQDZf+S9A5ZWzuBUT4bM9m42vk\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 19 Feb 2024 16:56:58 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"msg\": \"success\",\n    \"data\": [\n        {\n            \"_id\": \"65d38805a4a1df16e7090049\",\n            \"title\": \"Admin Task 1\",\n            \"description\": \"desc\",\n            \"user\": \"65d385d0e67c37d0aa6ffa95\",\n            \"completed\": false,\n            \"__v\": 0\n        },\n        {\n            \"_id\": \"65d3880ba4a1df16e709004b\",\n            \"title\": \"Admin Task 2\",\n            \"description\": \"desc\",\n            \"user\": \"65d385d0e67c37d0aa6ffa95\",\n            \"completed\": false,\n            \"__v\": 0\n        }\n    ]\n}"
+						},
+						{
+							"name": "api accessed without login",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{localhost}}/task"
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "27"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"1b-tIyHlwHigUzXFje56baePYrkQwY\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 19 Feb 2024 17:06:04 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"msg\": \"No token provided\"\n}"
+						}
+					]
+				},
+				{
+					"name": "get one task",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1ZDM4NWY0ZTY3YzM3ZDBhYTZmZmE5OSIsImFkbWluIjpmYWxzZSwiaWF0IjoxNzA4MzYxNTY5LCJleHAiOjE3MDg0NDc5Njl9.XHUkWutgup4biqpFCt0JMQmTdBaR5Z5Hf4-2Q5NgD20"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "{{localhost}}/task/65d38805a4a1df16e7090049"
+					},
+					"response": [
+						{
+							"name": "get task",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": "{{localhost}}/task/65d38805a4a1df16e7090049"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "225"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"e1-5AVRDyygIBmJD8LHywnD6CTyIuY\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 19 Feb 2024 16:57:49 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"msg\": \"success\",\n    \"data\": {\n        \"_id\": \"65d38805a4a1df16e7090049\",\n        \"title\": \"Admin Task 1\",\n        \"description\": \"desc\",\n        \"user\": {\n            \"_id\": \"65d385d0e67c37d0aa6ffa95\",\n            \"name\": \"admin\",\n            \"email\": \"admin@gmail.com\",\n            \"admin\": true\n        },\n        \"completed\": false,\n        \"__v\": 0\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "create a task",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1ZDM4NWY0ZTY3YzM3ZDBhYTZmZmE5OSIsImFkbWluIjpmYWxzZSwiaWF0IjoxNzA4MzYxNTY5LCJleHAiOjE3MDg0NDc5Njl9.XHUkWutgup4biqpFCt0JMQmTdBaR5Z5Hf4-2Q5NgD20"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\":\"User Task 1\",\n    \"description\":\"desc\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{localhost}}/task"
+					},
+					"response": [
+						{
+							"name": "create a task",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"title\":\"User Task 1\",\n    \"description\":\"desc\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{localhost}}/task"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "162"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"a2-7/CygeMxy5e0CcJhAKz4AzVQ0Nc\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 19 Feb 2024 16:56:04 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"msg\": \"success\",\n    \"data\": {\n        \"title\": \"User Task 1\",\n        \"description\": \"desc\",\n        \"user\": \"65d385f4e67c37d0aa6ffa99\",\n        \"completed\": false,\n        \"_id\": \"65d38824a4a1df16e709004f\",\n        \"__v\": 0\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "update task",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1ZDM4NWQwZTY3YzM3ZDBhYTZmZmE5NSIsImFkbWluIjp0cnVlLCJpYXQiOjE3MDgzNjE0MTEsImV4cCI6MTcwODQ0NzgxMX0.odYdGu2rkOc4enKW6x2IkYZawYJk2Dxb9u0NRiieXwo"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"description\":\"difficult task\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{localhost}}/task/update/65d38805a4a1df16e7090049"
+					},
+					"response": [
+						{
+							"name": "update a task",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"description\":\"difficult task\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{localhost}}/task/update/65d38805a4a1df16e7090049"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "173"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"ad-Esc247xiYq7nVhuUao5Brvx7sHQ\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 19 Feb 2024 17:00:41 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"msg\": \"success\",\n    \"data\": {\n        \"_id\": \"65d38805a4a1df16e7090049\",\n        \"title\": \"Admin Task 1\",\n        \"description\": \"difficult task\",\n        \"user\": \"65d385d0e67c37d0aa6ffa95\",\n        \"completed\": false,\n        \"__v\": 0\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "delete task",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1ZDM4NWQwZTY3YzM3ZDBhYTZmZmE5NSIsImFkbWluIjp0cnVlLCJpYXQiOjE3MDgzNjE0MTEsImV4cCI6MTcwODQ0NzgxMX0.odYdGu2rkOc4enKW6x2IkYZawYJk2Dxb9u0NRiieXwo"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"url": "{{localhost}}/task/delete/65d3880ba4a1df16e709004b"
+					},
+					"response": [
+						{
+							"name": "delete a  task",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": "{{localhost}}/task/delete/65d3880ba4a1df16e709004b"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "163"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"a3-CBkZBqvq5DpPli0LrQhkwwlYfpg\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 19 Feb 2024 17:01:51 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"msg\": \"success\",\n    \"data\": {\n        \"_id\": \"65d3880ba4a1df16e709004b\",\n        \"title\": \"Admin Task 2\",\n        \"description\": \"desc\",\n        \"user\": \"65d385d0e67c37d0aa6ffa95\",\n        \"completed\": false,\n        \"__v\": 0\n    }\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "admin api",
+			"item": [
+				{
+					"name": "getAllUsers",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1ZDM4NWQwZTY3YzM3ZDBhYTZmZmE5NSIsImFkbWluIjp0cnVlLCJpYXQiOjE3MDgzNjE0MTEsImV4cCI6MTcwODQ0NzgxMX0.odYdGu2rkOc4enKW6x2IkYZawYJk2Dxb9u0NRiieXwo"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "{{localhost}}/admin/getUsers"
+					},
+					"response": [
+						{
+							"name": "getAllUsers",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": "{{localhost}}/admin/getUsers"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "375"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"177-cD0VXw/mPjsRrfVhWpr60lR7VSQ\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 19 Feb 2024 17:04:36 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"msg\": \"success\",\n    \"data\": [\n        {\n            \"_id\": \"65d385d0e67c37d0aa6ffa95\",\n            \"name\": \"admin\",\n            \"email\": \"admin@gmail.com\",\n            \"password\": \"$2b$05$R5kyq2w5TI8GEzlsGdbUZ.iCRhRK8LeG.bNS09g2uQUw2kb04YFFC\",\n            \"admin\": true,\n            \"__v\": 0\n        },\n        {\n            \"_id\": \"65d385f4e67c37d0aa6ffa99\",\n            \"name\": \"Notadmin\",\n            \"email\": \"Notadmin@gmail.com\",\n            \"password\": \"$2b$05$mggJuHuI6jD.94J0kdAKlee.mAjy6SJKa/opLFvVlo60AU5HmSvVe\",\n            \"admin\": false,\n            \"__v\": 0\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete a user",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1ZDFjMDlhMzI3ODUwMDYxNmQ1MGE5YyIsImlhdCI6MTcwODM2MDQ4NSwiZXhwIjoxNzA4NDQ2ODg1fQ.ivPUvxRm016vNyHXdAqBR38wM53iwetdlPrCBPJfktg"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\":\"Test@gmail.com\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{localhost}}/admin/deleteUser"
+					},
+					"response": []
+				},
+				{
+					"name": "getAllTasks",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1ZDM4NWY0ZTY3YzM3ZDBhYTZmZmE5OSIsImFkbWluIjpmYWxzZSwiaWF0IjoxNzA4MzYxNTY5LCJleHAiOjE3MDg0NDc5Njl9.XHUkWutgup4biqpFCt0JMQmTdBaR5Z5Hf4-2Q5NgD20"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "{{localhost}}/admin/getTasks"
+					},
+					"response": [
+						{
+							"name": "getAllTasks",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": "{{localhost}}/admin/getTasks"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "651"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"28b-Zyn3MkxwzTDiFrsvL/Lkk9V79Lg\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 19 Feb 2024 17:04:46 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"msg\": \"success\",\n    \"data\": [\n        {\n            \"_id\": \"65d38805a4a1df16e7090049\",\n            \"title\": \"Admin Task 1\",\n            \"description\": \"difficult task\",\n            \"user\": {\n                \"_id\": \"65d385d0e67c37d0aa6ffa95\",\n                \"name\": \"admin\",\n                \"email\": \"admin@gmail.com\",\n                \"admin\": true\n            },\n            \"completed\": false,\n            \"__v\": 0\n        },\n        {\n            \"_id\": \"65d38822a4a1df16e709004d\",\n            \"title\": \"User Task 2\",\n            \"description\": \"desc\",\n            \"user\": {\n                \"_id\": \"65d385f4e67c37d0aa6ffa99\",\n                \"name\": \"Notadmin\",\n                \"email\": \"Notadmin@gmail.com\",\n                \"admin\": false\n            },\n            \"completed\": false,\n            \"__v\": 0\n        },\n        {\n            \"_id\": \"65d38824a4a1df16e709004f\",\n            \"title\": \"User Task 1\",\n            \"description\": \"desc\",\n            \"user\": {\n                \"_id\": \"65d385f4e67c37d0aa6ffa99\",\n                \"name\": \"Notadmin\",\n                \"email\": \"Notadmin@gmail.com\",\n                \"admin\": false\n            },\n            \"completed\": false,\n            \"__v\": 0\n        }\n    ]\n}"
+						},
+						{
+							"name": "Unauthorized access to admin api",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": "{{localhost}}/admin/getTasks"
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "22"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"16-YvMbWjt/xtp/xO2Swj50g9+Lw1c\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 19 Feb 2024 17:05:26 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"msg\": \"Unauthorized\"\n}"
+						}
+					]
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "user1",
+			"value": "\"name\":\"xyz\",\n    \"email\":\"xyz@gmail.com\",\n    \"password\":\"xXsakjdah\""
+		},
+		{
+			"key": "user2",
+			"value": "\"name\":\"Hassaan\",\n    \"email\":\"hassaan@gmail.com\",\n    \"password\":\"Xhaisnad\""
+		},
+		{
+			"key": "Test",
+			"value": "\"email\":\"Test@gmail.com\",\n  \"password\": \"Hjakadsl\""
+		}
+	]
+}

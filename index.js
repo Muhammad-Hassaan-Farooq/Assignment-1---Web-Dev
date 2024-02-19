@@ -6,7 +6,8 @@ const connectDB = require("./Database/connectDB");
 const authRoutes = require("./routes/auth");
 const taskRoutes = require("./routes/task");
 const verifyAuth = require("./middleware/verifyAuth");
-const verifyAccess = require("./middleware/verifyAccess");
+const adminRoutes = require("./routes/admin");
+const verifyAdmin = require("./middleware/verifyAdmin");
 
 app.use(express.json());
 
@@ -14,9 +15,17 @@ app.use(express.json());
 
 //Auth routes
 app.use("/auth", authRoutes);
+
+//Verify auth middleware
 app.use(verifyAuth);
-app.use("/task/:id", verifyAccess);
+
+//Task routes
 app.use("/task", taskRoutes);
+
+//Verify admin middleware
+app.use(verifyAdmin);
+//Admin routes
+app.use("/admin", adminRoutes);
 
 (async () => {
   try {
